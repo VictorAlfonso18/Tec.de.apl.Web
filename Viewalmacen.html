@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Almacenes</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #4b79a1, #283e51);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: #fff;
+    }
+    .menu-container {
+        width: 300px;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        text-align: center;
+    }
+    .menu-container h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #e0e0e0;
+    }
+    .menu-button {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        font-size: 18px;
+        color: #fff;
+        background-color: #0056b3;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        text-decoration: none;
+    }
+    .menu-button:hover {
+        background-color: #003d82;
+    }
+    .menu-button i {
+        margin-right: 10px;
+    }
+    /* Submenú oculto */
+    .submenu {
+        display: none;
+        margin: 5px 0;
+        padding-left: 20px;
+    }
+    .submenu a, .submenu button {
+        display: block;
+        padding: 8px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #0066cc;
+        margin: 2px 0;
+        border-radius: 5px;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+    }
+    .submenu a:hover, .submenu button:hover {
+        background-color: #004080;
+    }
+  </style>
+</head>
+<body>
+<div class="menu-container">
+  <h1>Sistema de Almacén</h1>
+
+  <!-- Botón con submenú -->
+  <button class="menu-button" onclick="toggleSubMenu('submenu-registrar')">
+    <i class="fas fa-box"></i> Registrar Producto <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="submenu" id="submenu-registrar">
+    <a href="agregar_producto.html" target="_blank">Agregar Producto</a>
+    <button onclick="alert('Abrir formulario para actualizar producto')">Actualizar Producto</button>
+  </div>
+
+  <button class="menu-button" onclick="toggleSubMenu('submenu-almacenes')">
+    <i class="fas fa-warehouse"></i> Almacenes <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="submenu" id="submenu-almacenes">
+    <a href="ver_almacenes.html" target="_blank">Ver Almacenes</a>
+    <a href="agregar_almacen.html" target="_blank">Agregar Almacén</a>
+  </div>
+
+  <button class="menu-button" onclick="toggleSubMenu('submenu-inventario')">
+    <i class="fas fa-list"></i> Ver Inventario <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="submenu" id="submenu-inventario">
+    <a href="inventario_general.html" target="_blank">Inventario General</a>
+    <button onclick="alert('Mostrando movimientos de inventario')">Movimientos de Inventario</button>
+  </div>
+
+  <button class="menu-button" onclick="toggleSubMenu('submenu-reportes')">
+    <i class="fas fa-chart-bar"></i> Reportes <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="submenu" id="submenu-reportes">
+    <a href="reporte_ventas.html" target="_blank">Reporte de Ventas</a>
+    <a href="reporte_almacenes.html" target="_blank">Reporte de Almacenes</a>
+  </div>
+</div>
+
+<script>
+  // Función para mostrar u ocultar los submenús
+  function toggleSubMenu(id) {
+      const submenu = document.getElementById(id);
+      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+  }
+</script>
+</body>
+</html>
